@@ -13,7 +13,7 @@ export class AppComponent {
 
   constructor(private http: HttpClient) {
 
-    this.http.get<string>('http://localhost:8080/').subscribe(result => {
+    this.http.get<string>('http://localhost:8080/', {responseType: 'text' as 'json'}).subscribe(result => {
       this.mess = result;
     });
 
