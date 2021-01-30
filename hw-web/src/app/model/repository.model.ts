@@ -9,8 +9,15 @@ export class Model {
 
   constructor(private dataSource: RestDataSource) {
     this.words = new Array<Word>();
-    this.dataSource.getData().forEach(p => this.words.push(p));
+    this.dataSource.getData()
+      .subscribe(data => {
+          console.log('data: ' + JSON.stringify(data));
+
+          this.words = data;
+        }
+      );
   }
+
   getWords(): Word[] {
     return this.words;
   }
