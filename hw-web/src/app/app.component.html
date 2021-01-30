@@ -1,1 +1,8 @@
-<div>{{mess}}</div>
+<table class="table table-sm table-bordered table-striped">
+  <tr *ngFor="let item of getWords()">
+    <td style="vertical-align:middle">{{item.id}}</td>
+    <td style="vertical-align:middle">{{item.typeWord}}</td>
+    <td style="vertical-align:middle">{{item.word}}</td>
+    <td style="vertical-align:middle">{{item.trans}}</td>
+  </tr>
+</table>
