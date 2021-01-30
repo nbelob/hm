@@ -4,6 +4,9 @@ import hw.hwserver.dao.Dao;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import hw.hwserver.domain.WordObject;
+
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -18,9 +21,9 @@ public class HwController {
 
     @RequestMapping(value = "/", method = GET)
     @ResponseBody
-    public void home()
+    public List<WordObject> home()
     {
     //    return "Привет";
-        System.out.println(dao.findWords(1));
+        return dao.findWords(1);
     }
 }
