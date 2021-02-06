@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from "rxjs";
 import { Word } from './word.model';
-import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class RestDataSource {
@@ -9,11 +10,7 @@ export class RestDataSource {
   constructor(private http: HttpClient) {
   }
 
-  getData(): Word[] {
-    this.http.get<Word[]>('http://localhost:8080/').subscribe(result => {
-      this.data = result;
-    });
-    console.log(this.data);
-    return this.data;
+  getData(): Observable<Word[]> {
+    return this.http.get<Word[]>('api/');
   }
 }

@@ -11,9 +11,9 @@ import java.util.List;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api")
 public class HwController {
-    private Dao dao;
+    private final Dao dao;
 
     public HwController(Dao dao) {
         this.dao = dao;
